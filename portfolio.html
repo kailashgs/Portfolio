@@ -76,9 +76,6 @@ nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 4rem;display:flex;align-i
   100%{transform:translate(var(--tx,20px),var(--ty,-120px)) scale(0);opacity:0;}
 }
 
-/* Horizontal accent line */
-.hero-line{position:absolute;top:50%;left:0;width:0;height:1px;background:linear-gradient(90deg,transparent,var(--c1),transparent);opacity:.3;animation:lineSweep 1.4s 0.3s cubic-bezier(.4,0,.2,1) forwards;pointer-events:none;z-index:1;}
-@keyframes lineSweep{to{width:100%;}}
 
 /* Tag */
 .htag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c1);border:1px solid rgba(255,107,53,.4);padding:.35rem 1rem .35rem .8rem;border-radius:2rem;margin-bottom:2rem;opacity:0;transform:translateY(40px);position:relative;overflow:hidden;}
@@ -100,12 +97,10 @@ nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 4rem;display:flex;align-i
 
 /* Stats */
 .hstats{margin-top:2.5rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}
-.hstats .hstat{display:inline-flex;align-items:center;gap:0;font-size:.8rem;font-weight:600;color:#ccc;letter-spacing:.06em;padding:.5rem .6rem;border-radius:50px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);cursor:default;opacity:0;transform:translateY(20px) scale(.9);transition:color .3s,border-color .3s,background .3s,box-shadow .3s,padding .35s cubic-bezier(.4,0,.2,1);}
-.hstats .hstat:hover{color:#fff;border-color:rgba(255,107,53,.5);background:rgba(255,107,53,.1);box-shadow:0 8px 28px rgba(255,107,53,.2);padding:.5rem 1.1rem .5rem .7rem;}
-.hstats .hstat .hico{font-size:1rem;line-height:1;flex-shrink:0;transition:transform .35s cubic-bezier(.4,0,.2,1);}
-.hstats .hstat:hover .hico{transform:scale(1.15);}
-.hstats .hstat .hstat-label{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .35s cubic-bezier(.4,0,.2,1), opacity .25s ease, margin-left .35s cubic-bezier(.4,0,.2,1);margin-left:0;}
-.hstats .hstat:hover .hstat-label{max-width:160px;opacity:1;margin-left:.45rem;}
+.hstats .hstat{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:600;color:#ccc;letter-spacing:.06em;padding:.5rem 1rem;border-radius:50px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);cursor:default;opacity:0;transform:translateY(20px) scale(.9);transition:color .3s,border-color .3s,background .3s,box-shadow .3s;}
+.hstats .hstat:hover{color:#fff;border-color:rgba(255,107,53,.45);background:rgba(255,107,53,.08);box-shadow:0 8px 24px rgba(255,107,53,.15);}
+.hstats .hstat .hico{font-size:1rem;line-height:1;flex-shrink:0;}
+.hstats .hstat .hstat-label{white-space:nowrap;}
 .hstats .hstat .hval{color:var(--c1);font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;}
 .hstats .hsep{display:none;}
 
@@ -684,7 +679,6 @@ window.addEventListener('DOMContentLoaded', function(){
     <span style="width:2px;height:2px;left:55%;top:50%;--dur:11s;--delay:0.6s;--tx:40px;--ty:-120px;"></span>
     <span style="width:4px;height:4px;left:90%;top:75%;--dur:8.5s;--delay:2.5s;--tx:-30px;--ty:-170px;background:var(--c4);"></span>
   </div>
-  <div class="hero-line"></div>
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
