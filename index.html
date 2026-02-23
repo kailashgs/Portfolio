@@ -7,7 +7,6 @@
 <meta name="keywords" content="Kailash G S, Associate Software Engineer, Web Developer, Email Tools, SMTP, JavaScript Developer">
 <meta name="author" content="Kailash G S">
 <title>Kailash G S - Portfolio</title>
-<link rel="icon" type="image/webp" href="OIP.webp">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 
@@ -27,7 +26,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);ove
 #loader.out{opacity:0;pointer-events:none;}
 #lname{font-family:'Syne',sans-serif;font-size:clamp(2rem,7vw,5.5rem);font-weight:800;color:transparent;-webkit-text-stroke:2px var(--c1);letter-spacing:.1em;min-height:1.3em;}
 #lbar-wrap{width:260px;height:2px;background:#1a1a1a;margin-top:2rem;border-radius:2px;overflow:hidden;}
-#lbar{height:100%;background:linear-gradient(90deg,var(--c1),var(--c5));width:0%;transition:width .06s linear;}
+#lbar{height:100%;background:linear-gradient(90deg,var(--c1),var(--c5));width:0%;transition:width .35s cubic-bezier(.4,0,.2,1);}
 #lpct{font-family:'Syne',sans-serif;font-size:.78rem;color:var(--muted);margin-top:.7rem;letter-spacing:.2em;}
 
 /* ===== NAVIGATION ===== */
@@ -52,22 +51,79 @@ nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 4rem;display:flex;align-i
 
 /* ===== HERO ===== */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;padding-top:8rem;overflow:hidden;}
-.hi{max-width:1200px;margin:0 auto;padding:0 3rem;}
-.htag{display:inline-block;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--c1);border:1px solid var(--c1);padding:.3rem 1rem;border-radius:2rem;margin-bottom:2rem;opacity:0;transform:translateY(20px);animation:fu .8s .2s forwards;}
-.htitle{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,8rem);font-weight:800;line-height:1;letter-spacing:-.02em;opacity:0;transform:translateY(30px);animation:fu .9s .4s forwards;margin-bottom:2rem;}
-.htitle .ol{color:transparent;-webkit-text-stroke:2px var(--text);}
-.htitle .ac{color:var(--c1);}
-.hsub{margin-top:2.5rem;max-width:540px;font-size:1.05rem;line-height:1.8;color:#aaa;opacity:0;transform:translateY(20px);animation:fu .9s .6s forwards;}
-.hcta{margin-top:3rem;display:flex;gap:1.5rem;flex-wrap:wrap;opacity:0;transform:translateY(20px);animation:fu .9s .8s forwards;}
+.hi{max-width:1200px;margin:0 auto;padding:0 3rem;position:relative;z-index:2;}
+
+/* Scanline sweep overlay */
+#hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(255,107,53,.03) 50%,transparent 100%);background-size:100% 4px;pointer-events:none;z-index:1;animation:scanlines 8s linear infinite;opacity:.4;}
+@keyframes scanlines{0%{background-position:0 0;}100%{background-position:0 100vh;}}
+
+/* Noise grain texture */
+#hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:1;}
+
+/* Grid lines */
+.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.hero-grid::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,53,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,53,.04) 1px,transparent 1px);background-size:60px 60px;animation:gridFade 3s ease forwards;}
+.hero-grid::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,var(--bg),transparent);}
+@keyframes gridFade{from{opacity:0;}to{opacity:1;}}
+
+/* Floating particles */
+.hero-particles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.hero-particles span{position:absolute;border-radius:50%;background:var(--c1);opacity:0;animation:particleDrift var(--dur,6s) var(--delay,0s) ease-in-out infinite;}
+@keyframes particleDrift{
+  0%{transform:translate(0,0) scale(0);opacity:0;}
+  15%{opacity:.6;}
+  85%{opacity:.2;}
+  100%{transform:translate(var(--tx,20px),var(--ty,-120px)) scale(0);opacity:0;}
+}
+
+/* Horizontal accent line */
+.hero-line{position:absolute;top:50%;left:0;width:0;height:1px;background:linear-gradient(90deg,transparent,var(--c1),transparent);opacity:.3;animation:lineSweep 1.4s 0.3s cubic-bezier(.4,0,.2,1) forwards;pointer-events:none;z-index:1;}
+@keyframes lineSweep{to{width:100%;}}
+
+/* Tag */
+.htag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c1);border:1px solid rgba(255,107,53,.4);padding:.35rem 1rem .35rem .8rem;border-radius:2rem;margin-bottom:2rem;opacity:0;transform:translateY(40px);position:relative;overflow:hidden;}
+.htag .tag-dot{width:6px;height:6px;border-radius:50%;background:var(--c1);flex-shrink:0;}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(255,107,53,.5);}50%{box-shadow:0 0 0 4px rgba(255,107,53,0);}}
+
+/* Title */
+.htitle{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,8rem);font-weight:800;line-height:1;letter-spacing:-.02em;margin-bottom:2rem;}
+.htitle .ol{color:transparent;-webkit-text-stroke:2px var(--text);display:inline-block;opacity:0;transform:translateY(60vh);}
+.htitle .ac{color:var(--c1);display:inline-block;opacity:0;transform:translateY(60vh);}
+
+/* Subtitle — hidden until typing begins */
+.hsub{margin-top:2.5rem;max-width:540px;font-size:1.05rem;line-height:1.8;color:#aaa;opacity:0;min-height:3.6em;visibility:hidden;}
+.hsub-cursor{display:inline-block;width:2px;height:1em;background:var(--c1);margin-left:2px;vertical-align:text-bottom;animation:blink .7s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* CTA buttons */
+.hcta{margin-top:3rem;display:flex;gap:1.5rem;flex-wrap:wrap;opacity:0;transform:translateY(20px);}
+
+/* Stats */
+.hstats{margin-top:2.5rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}
+.hstats .hstat{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;color:#ccc;letter-spacing:.06em;padding:.55rem 1.1rem;border-radius:50px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);transition:color .3s,border-color .3s,background .3s,transform .25s,box-shadow .3s;cursor:default;opacity:0;transform:translateY(20px) scale(.9);}
+.hstats .hstat:hover{color:#fff;border-color:rgba(255,107,53,.45);background:rgba(255,107,53,.08);transform:translateY(-3px) scale(1);box-shadow:0 8px 24px rgba(255,107,53,.15);}
+.hstats .hstat .hico{font-size:1rem;line-height:1;flex-shrink:0;}
+.hstats .hstat .hval{color:var(--c1);font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;}
+.hstats .hsep{display:none;}
+
+/* Shared fade-up transition used by JS */
+.hero-anim-ready{transition:opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);}
+.hero-anim-in{opacity:1 !important;transform:translateY(0) !important;}
+.hero-stat-ready{transition:opacity .5s cubic-bezier(.34,1.56,.64,1), transform .5s cubic-bezier(.34,1.56,.64,1);}
+.hero-stat-in{opacity:1 !important;transform:translateY(0) scale(1) !important;}
+
 .btn{padding:.9rem 2.5rem;border-radius:50px;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;cursor:none;transition:transform .2s,box-shadow .2s;display:inline-block;text-align:center;}
 .bp{background:var(--c1);color:#fff;box-shadow:0 0 30px rgba(255,107,53,.3);}
 .bp:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(255,107,53,.5);}
 .bo{border:1.5px solid rgba(255,255,255,.25);color:var(--text);}
 .bo:hover{border-color:var(--c1);transform:translateY(-3px);}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.18;animation:bf 8s ease-in-out infinite alternate;}
-.b1{width:500px;height:500px;background:var(--c1);top:-100px;right:-100px;}
-.b2{width:400px;height:400px;background:var(--c4);bottom:50px;left:-100px;animation-delay:2s;}
-.b3{width:300px;height:300px;background:var(--c5);top:50%;right:20%;animation-delay:4s;}
+
+/* Blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0;animation:blobIn 2s var(--bd,0s) ease forwards, bf 8s var(--bd,0s) ease-in-out infinite alternate;}
+.b1{width:500px;height:500px;background:var(--c1);top:-100px;right:-100px;--bd:.1s;}
+.b2{width:400px;height:400px;background:var(--c4);bottom:50px;left:-100px;--bd:.4s;}
+.b3{width:300px;height:300px;background:var(--c5);top:50%;right:20%;--bd:.7s;}
+@keyframes blobIn{from{opacity:0;transform:scale(.6);}to{opacity:.18;transform:scale(1);}}
 @keyframes bf{from{transform:translate(0,0) scale(1);}to{transform:translate(30px,40px) scale(1.1);}}
 @keyframes fu{to{opacity:1;transform:translateY(0);}}
 
@@ -279,12 +335,18 @@ footer span{color:var(--c1);}
 
 /* ===== RESPONSIVE ===== */
 
-/* Tablet */
+/* Tablet landscape */
 @media(max-width:1024px){
   .skills-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
   .card{height:300px;}
   .cog{gap:3rem;}
   .projects-grid{grid-template-columns:repeat(2,1fr);}
+  /* hero */
+  #hero{padding-top:7rem;}
+  .hi{padding:0 2.5rem;}
+  .htitle{font-size:clamp(3rem,7vw,6.5rem);}
+  .hsub{max-width:480px;}
+  .hstats{gap:.6rem;}
 }
 
 /* Large mobile / small tablet */
@@ -301,16 +363,34 @@ footer span{color:var(--c1);}
   .projects-grid{grid-template-columns:1fr;}
   .project-card{height:280px;}
   .edc:hover{transform:none;}
+  /* hero */
+  #hero{padding-top:6.5rem;min-height:100svh;}
+  .htitle{font-size:clamp(2.8rem,9vw,5rem);}
+  .hsub{font-size:1rem;max-width:100%;}
+  .hcta{gap:1rem;}
+  .hstats{gap:.5rem;}
+  .hstats .hstat{font-size:.75rem;padding:.45rem .9rem;}
+  .hero-grid::before{background-size:40px 40px;}
 }
 
 /* Mobile */
 @media(max-width:640px){
-  #hero{padding-top:6rem;}
+  /* hero */
+  #hero{padding-top:5.5rem;min-height:100svh;justify-content:center;}
   .hi{padding:0 1.2rem;}
-  .htitle{font-size:clamp(2.8rem,13vw,5rem);}
-  .hsub{font-size:.95rem;}
-  .hcta{flex-direction:column;align-items:flex-start;gap:1rem;}
-  .btn{width:100%;text-align:center;}
+  .htitle{font-size:clamp(2.6rem,13vw,4.5rem);margin-bottom:1.2rem;line-height:.95;}
+  .htag{font-size:.65rem;letter-spacing:.18em;padding:.3rem .9rem .3rem .7rem;margin-bottom:1.4rem;}
+  .hsub{font-size:.92rem;margin-top:1.5rem;line-height:1.7;}
+  .hcta{margin-top:2rem;flex-direction:column;align-items:stretch;gap:.85rem;}
+  .btn{width:100%;text-align:center;padding:.85rem 1.5rem;}
+  .hstats{margin-top:1.8rem;gap:.45rem;}
+  .hstats .hstat{font-size:.72rem;padding:.4rem .85rem;gap:.4rem;}
+  .hstats .hstat .hico{font-size:.85rem;}
+  .hstats .hstat .hval{font-size:.8rem;}
+  /* disable heavy bg effects on small screens */
+  .hero-particles{display:none;}
+  #hero::after{display:none;}
+  /* sections */
   section{padding:3.5rem 1.2rem;}
   .st{margin-bottom:1.2rem;}
   .skills-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
@@ -332,15 +412,37 @@ footer span{color:var(--c1);}
 
 /* Small mobile */
 @media(max-width:420px){
+  #hero{padding-top:5rem;}
+  .hi{padding:0 1rem;}
+  .htitle{font-size:clamp(2.2rem,14vw,3.5rem);line-height:.92;}
+  .htag{font-size:.6rem;letter-spacing:.14em;}
+  .hsub{font-size:.88rem;}
+  .hstats{gap:.4rem;}
+  .hstats .hstat{font-size:.68rem;padding:.38rem .75rem;}
   .skills-grid{grid-template-columns:1fr;}
   .card{height:280px;}
-  .htitle{font-size:clamp(2.4rem,14vw,4rem);}
   nav{padding:1rem 1.2rem;}
   .nl{font-size:1.2rem;}
   .ext::before{left:4px;}
   .exdot{left:-2.35rem;}
   .ext{padding-left:2rem;}
   .project-card{height:260px;}
+  .hero-grid{display:none;}
+}
+
+/* Very small / landscape phones */
+@media(max-width:380px){
+  .htitle{font-size:clamp(2rem,15vw,3rem);}
+  .hcta .btn{font-size:.78rem;padding:.75rem 1.2rem;}
+}
+
+/* Landscape orientation on short screens */
+@media(max-height:500px) and (orientation:landscape){
+  #hero{min-height:auto;padding-top:5rem;padding-bottom:3rem;}
+  .htitle{font-size:clamp(2rem,6vw,3.5rem);margin-bottom:.8rem;}
+  .hsub{margin-top:1rem;font-size:.88rem;}
+  .hcta{margin-top:1.2rem;}
+  .hstats{margin-top:1.2rem;}
 }
 </style>
 
@@ -355,25 +457,104 @@ window.addEventListener('DOMContentLoaded', function(){
   var le=document.getElementById('loader');
   function type(){ if(ne) ne.textContent=n.slice(0,i); i++; if(i<=n.length) setTimeout(type,110); }
   setTimeout(type,300);
+
+  function startHeroSequence(){
+    var ol   = document.querySelector('.htitle .ol');
+    var ac   = document.querySelector('.htitle .ac');
+    var htag = document.querySelector('.htag');
+    var hsub = document.querySelector('.hsub');
+    var hcta = document.querySelector('.hcta');
+    var stats= document.querySelectorAll('.hstats .hstat');
+    var tagDot = document.querySelector('.htag .tag-dot');
+    var subText = 'Passionate about designing and developing web pages, eager to bring creativity and collaboration to every project.';
+
+    /* ---- helper: fade-up ---- */
+    function fadeUp(el, delay){
+      el.classList.add('hero-anim-ready');
+      setTimeout(function(){ el.classList.add('hero-anim-in'); }, delay);
+    }
+
+    /* 1. "Kailash" fades up from bottom — immediate */
+    fadeUp(ol, 0);
+
+    /* 2. "G S" fades up right after */
+    fadeUp(ac, 200);
+
+    /* 3. Role tag fades up after title settles */
+    fadeUp(htag, 550);
+    setTimeout(function(){
+      if(tagDot) tagDot.style.animation = 'pulseDot 1.5s ease-in-out infinite';
+    }, 550);
+
+    /* 4. Typing animation for subtitle — reveal container first, then type */
+    setTimeout(function(){
+      hsub.style.visibility = 'visible';
+      hsub.style.opacity    = '1';
+      hsub.textContent = '';
+      var cursor = document.createElement('span');
+      cursor.className = 'hsub-cursor';
+      hsub.appendChild(cursor);
+      var idx = 0;
+      var speed = 28;
+      function typeChar(){
+        if(idx < subText.length){
+          hsub.insertBefore(document.createTextNode(subText[idx]), cursor);
+          idx++;
+          setTimeout(typeChar, speed);
+        } else {
+          /* remove blinking cursor after typing finishes */
+          setTimeout(function(){ cursor.style.display = 'none'; }, 800);
+          /* 5. Buttons fade in after typing ends */
+          fadeUp(hcta, 150);
+          /* 6. Stat pills pop in one by one */
+          stats.forEach(function(s, i){
+            s.classList.add('hero-stat-ready');
+            setTimeout(function(){ s.classList.add('hero-stat-in'); }, 300 + i * 120);
+          });
+        }
+      }
+      typeChar();
+    }, 950);
+  }
+
   function hideLdr(){
     if(done)return; done=true;
     if(be) be.style.width='100%';
     if(pe) pe.textContent='100%';
     setTimeout(function(){
       if(le){ le.classList.add('out'); }
-      setTimeout(function(){ if(le) le.style.display='none'; },900);
+      setTimeout(function(){
+        if(le) le.style.display='none';
+        startHeroSequence();
+      }, 900);
     },400);
   }
   function tick(){
     if(done)return;
-    p+=Math.random()*2.5+1.2;
-    if(p>=100){ hideLdr(); return; }
-    if(be) be.style.width=p+'%';
-    if(pe) pe.textContent=Math.floor(p)+'%';
-    setTimeout(tick,45);
+    /* slow phase: creep to ~70% while name is typing (finishes ~1500ms) */
+    var slowTarget = 70;
+    if(p < slowTarget){
+      p += Math.random()*1.2+0.6;
+      if(p > slowTarget) p = slowTarget;
+      if(be) be.style.width=p+'%';
+      if(pe) pe.textContent=Math.floor(p)+'%';
+      setTimeout(tick, 40);
+    } else {
+      /* fast phase: name has typed, race to 100% */
+      p += Math.random()*8+6;
+      if(p>=100){ hideLdr(); return; }
+      if(be) be.style.width=p+'%';
+      if(pe) pe.textContent=Math.floor(p)+'%';
+      setTimeout(tick, 18);
+    }
   }
-  setTimeout(tick,300);
-  setTimeout(hideLdr,7000);
+  /* start bar after name begins typing, switch to fast after name finishes (~1500ms) */
+  setTimeout(tick, 300);
+  setTimeout(function(){
+    if(!done && p < 70){ p = 70; }
+    tick();
+  }, 1550);
+  setTimeout(hideLdr, 7000);
 
   /* CURSOR */
   var cx=0,cy=0,rx=0,ry=0;
@@ -489,6 +670,18 @@ window.addEventListener('DOMContentLoaded', function(){
 
 <!-- HERO -->
 <div id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-particles">
+    <span style="width:3px;height:3px;left:10%;top:30%;--dur:7s;--delay:0.5s;--tx:30px;--ty:-140px;"></span>
+    <span style="width:5px;height:5px;left:25%;top:70%;--dur:9s;--delay:1.2s;--tx:-20px;--ty:-180px;"></span>
+    <span style="width:2px;height:2px;left:60%;top:20%;--dur:6s;--delay:0.8s;--tx:15px;--ty:-100px;"></span>
+    <span style="width:4px;height:4px;left:75%;top:60%;--dur:8s;--delay:2s;--tx:-35px;--ty:-150px;"></span>
+    <span style="width:3px;height:3px;left:85%;top:40%;--dur:10s;--delay:0.3s;--tx:25px;--ty:-130px;background:var(--c5);"></span>
+    <span style="width:5px;height:5px;left:40%;top:80%;--dur:7.5s;--delay:1.8s;--tx:-15px;--ty:-160px;background:var(--c5);"></span>
+    <span style="width:2px;height:2px;left:55%;top:50%;--dur:11s;--delay:0.6s;--tx:40px;--ty:-120px;"></span>
+    <span style="width:4px;height:4px;left:90%;top:75%;--dur:8.5s;--delay:2.5s;--tx:-30px;--ty:-170px;background:var(--c4);"></span>
+  </div>
+  <div class="hero-line"></div>
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
@@ -497,11 +690,17 @@ window.addEventListener('DOMContentLoaded', function(){
       <span class="ol">Kailash</span>
       <span class="ac"> G S</span>
     </h1>
-    <div class="htag">Associate Software Engineer</div>
+    <div class="htag"><span class="tag-dot"></span>Associate Software Engineer</div>
     <p class="hsub">Passionate about designing and developing web pages, eager to bring creativity and collaboration to every project.</p>
     <div class="hcta">
       <a href="#projects" class="btn bp">View My Work</a>
       <a href="#contact" class="btn bo">Get In Touch</a>
+    </div>
+    <div class="hstats">
+      <div class="hstat"><span class="hico">💼</span><span><span class="hval">1 Year</span> Experience</span></div>
+      <div class="hstat"><span class="hico">🚀</span><span><span class="hval">3+</span> Live Projects</span></div>
+      <div class="hstat"><span class="hico">♾️</span><span><span class="hval">∞</span> Curiosity</span></div>
+      <div class="hstat"><span class="hico">🎯</span><span><span class="hval">100%</span> Commitment</span></div>
     </div>
   </div>
 </div>
@@ -550,7 +749,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64"><path d="M54 8C54 8 36 20 16 22L14 38C14 38 22 38 24 42C26 46 28 54 28 54H34L30 40C42 42 54 56 54 56V8Z"/><path d="M10 22H14L12 38H10C7.8 38 6 36.2 6 34V26C6 23.8 7.8 22 10 22Z"/><circle cx="50" cy="14" r="3"/><circle cx="50" cy="50" r="3"/></svg>
           <strong>Digital Marketing Strategy</strong>
-          <span class="hover-hint">See more</span>
+          <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
@@ -568,7 +767,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64"><rect x="6" y="30" width="12" height="26" rx="2"/><rect x="22" y="18" width="12" height="38" rx="2"/><rect x="38" y="8" width="12" height="48" rx="2"/><line x1="4" y1="58" x2="60" y2="58" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
           <strong>Marketing Analytics</strong>
-          <span class="hover-hint">See more</span>
+          <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
@@ -586,7 +785,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64" fill="none"><circle cx="26" cy="26" r="18" stroke="white" stroke-width="4"/><line x1="39" y1="39" x2="56" y2="56" stroke="white" stroke-width="5" stroke-linecap="round"/><line x1="18" y1="26" x2="34" y2="26" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="26" y1="18" x2="26" y2="34" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
           <strong>Competitive Analysis</strong>
-          <span class="hover-hint">See more</span>
+          <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
@@ -604,7 +803,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36" rx="4" fill="none" stroke="white" stroke-width="4"/><polyline points="6,14 32,36 58,14" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/></svg>
           <strong>Email Marketing</strong>
-          <span class="hover-hint">See more</span>
+          <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
@@ -622,7 +821,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64"><path d="M32 6 A26 26 0 0 1 58 32 L32 32 Z" fill="white" opacity="0.5"/><path d="M32 32 L58 32 A26 26 0 0 1 10 52 Z" fill="white" opacity="0.75"/><path d="M32 32 L10 52 A26 26 0 0 1 32 6 Z" fill="white"/><circle cx="32" cy="32" r="4" fill="#151515"/></svg>
           <strong>Data Visualization</strong>
-          <span class="hover-hint">See more</span>
+          <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
@@ -640,7 +839,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64" fill="none"><path d="M32 10C24 10 16 16 16 26C16 32 20 36 20 36V50H44V36C44 36 48 32 48 26C48 16 40 10 32 10Z" stroke="white" stroke-width="3.5" fill="none" stroke-linejoin="round"/><line x1="24" y1="36" x2="40" y2="36" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="24" y1="43" x2="40" y2="43" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="50" x2="36" y2="50" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="32" y1="10" x2="32" y2="16" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="16" y1="24" x2="22" y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="48" y1="24" x2="42" y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
           <strong>AI Prompt Engineering</strong>
-          <span class="hover-hint">See more</span>
+          <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
@@ -718,7 +917,7 @@ window.addEventListener('DOMContentLoaded', function(){
       <p class="cotag">Have an idea? Let's build something <span>amazing</span> together.</p>
       <p class="coit">I'm open to new opportunities, collaborations, and interesting conversations. Drop me a message!</p>
       <div class="social-btns">
-        <a class="SBtn sb-email" href="/cdn-cgi/l/email-protection#5e392d353f37323f2d3668686a1e39333f3732703d3133" target="_blank">
+        <a class="SBtn sb-email" href="/cdn-cgi/l/email-protection#513a30383d3022393622113429303c213d347f323e3c" target="_blank">
           <div class="sign"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4C504.9 141.3 512 127.1 512 112c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2a63.9 63.9 0 0 1-76.8 0L0 176z"/></svg></div>
           <div class="text">Gmail</div>
         </a>
@@ -765,9 +964,8 @@ window.addEventListener('DOMContentLoaded', function(){
 
 <!-- FOOTER -->
 <footer>
-  <p>Designed &amp; Built by <span>Kailash</span></p>
+  <p>Designed &amp; Built by <span>Kailash G S</span></p>
 </footer>
+
 </body>
 </html>
-
-
