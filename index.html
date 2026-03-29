@@ -76,9 +76,6 @@ nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 4rem;display:flex;align-i
   100%{transform:translate(var(--tx,20px),var(--ty,-120px)) scale(0);opacity:0;}
 }
 
-/* Horizontal accent line */
-.hero-line{position:absolute;top:50%;left:0;width:0;height:1px;background:linear-gradient(90deg,transparent,var(--c1),transparent);opacity:.3;animation:lineSweep 1.4s 0.3s cubic-bezier(.4,0,.2,1) forwards;pointer-events:none;z-index:1;}
-@keyframes lineSweep{to{width:100%;}}
 
 /* Tag */
 .htag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c1);border:1px solid rgba(255,107,53,.4);padding:.35rem 1rem .35rem .8rem;border-radius:2rem;margin-bottom:2rem;opacity:0;transform:translateY(40px);position:relative;overflow:hidden;}
@@ -100,9 +97,10 @@ nav{position:fixed;top:0;left:0;right:0;padding:1.4rem 4rem;display:flex;align-i
 
 /* Stats */
 .hstats{margin-top:2.5rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}
-.hstats .hstat{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:600;color:#ccc;letter-spacing:.06em;padding:.55rem 1.1rem;border-radius:50px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);transition:color .3s,border-color .3s,background .3s,transform .25s,box-shadow .3s;cursor:default;opacity:0;transform:translateY(20px) scale(.9);}
-.hstats .hstat:hover{color:#fff;border-color:rgba(255,107,53,.45);background:rgba(255,107,53,.08);transform:translateY(-3px) scale(1);box-shadow:0 8px 24px rgba(255,107,53,.15);}
+.hstats .hstat{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:600;color:#ccc;letter-spacing:.06em;padding:.5rem 1rem;border-radius:50px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);cursor:default;opacity:0;transform:translateY(20px) scale(.9);transition:color .3s,border-color .3s,background .3s,box-shadow .3s;}
+.hstats .hstat:hover{color:#fff;border-color:rgba(255,107,53,.45);background:rgba(255,107,53,.08);box-shadow:0 8px 24px rgba(255,107,53,.15);}
 .hstats .hstat .hico{font-size:1rem;line-height:1;flex-shrink:0;}
+.hstats .hstat .hstat-label{white-space:nowrap;}
 .hstats .hstat .hval{color:var(--c1);font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;}
 .hstats .hsep{display:none;}
 
@@ -466,7 +464,7 @@ window.addEventListener('DOMContentLoaded', function(){
     var hcta = document.querySelector('.hcta');
     var stats= document.querySelectorAll('.hstats .hstat');
     var tagDot = document.querySelector('.htag .tag-dot');
-    var subText = 'Passionate about designing and developing web pages, eager to bring creativity and collaboration to every project.';
+    var subText = 'Started with code, fell in love with marketing. I build web tools and digital strategies that solve real problems — from SMTP infrastructure to campaign analytics and everything in between.';
 
     /* ---- helper: fade-up ---- */
     function fadeUp(el, delay){
@@ -681,7 +679,6 @@ window.addEventListener('DOMContentLoaded', function(){
     <span style="width:2px;height:2px;left:55%;top:50%;--dur:11s;--delay:0.6s;--tx:40px;--ty:-120px;"></span>
     <span style="width:4px;height:4px;left:90%;top:75%;--dur:8.5s;--delay:2.5s;--tx:-30px;--ty:-170px;background:var(--c4);"></span>
   </div>
-  <div class="hero-line"></div>
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
@@ -691,16 +688,18 @@ window.addEventListener('DOMContentLoaded', function(){
       <span class="ac"> G S</span>
     </h1>
     <div class="htag"><span class="tag-dot"></span>Associate Software Engineer</div>
-    <p class="hsub">Passionate about designing and developing web pages, eager to bring creativity and collaboration to every project.</p>
+    <p class="hsub">Started with code, fell in love with marketing. I build web tools and digital strategies that solve real problems — from SMTP infrastructure to campaign analytics and everything in between.</p>
     <div class="hcta">
       <a href="#projects" class="btn bp">View My Work</a>
       <a href="#contact" class="btn bo">Get In Touch</a>
     </div>
     <div class="hstats">
-      <div class="hstat"><span class="hico">💼</span><span><span class="hval">1 Year</span> Experience</span></div>
-      <div class="hstat"><span class="hico">🚀</span><span><span class="hval">3+</span> Live Projects</span></div>
-      <div class="hstat"><span class="hico">♾️</span><span><span class="hval">∞</span> Curiosity</span></div>
-      <div class="hstat"><span class="hico">🎯</span><span><span class="hval">100%</span> Commitment</span></div>
+      <div class="hstat"><span class="hico">💼</span><span class="hstat-label"><span class="hval">1 Year</span> Experience</span></div>
+      <div class="hstat"><span class="hico">🚀</span><span class="hstat-label"><span class="hval">3+</span> Live Projects</span></div>
+      <div class="hstat"><span class="hico">♾️</span><span class="hstat-label"><span class="hval">∞</span> Curiosity</span></div>
+      <div class="hstat"><span class="hico">🎯</span><span class="hstat-label"><span class="hval">100%</span> Commitment</span></div>
+      <div class="hstat"><span class="hico">🧩</span><span class="hstat-label">Problem Solver</span></div>
+      <div class="hstat"><span class="hico">🤝</span><span class="hstat-label">Team Player</span></div>
     </div>
   </div>
 </div>
@@ -715,21 +714,21 @@ window.addEventListener('DOMContentLoaded', function(){
     <div class="exitem">
       <div class="exdot"></div>
       <div class="exc">
-        <span class="exper">Aug 2024 &mdash; Present</span>
+        <span class="exper">Nov 2024 &mdash; Oct 2025</span>
         <div class="exrole">Associate Software Engineer</div>
-        <div class="exco">Full-Time &middot; Software Industry</div>
-        <p class="exdesc">Working as an Associate Software Engineer, contributing to the design and development of web-based applications. Collaborating with cross-functional teams to deliver clean, responsive, and user-friendly interfaces while continuously improving code quality and development practices.</p>
-        <div class="extags"><span class="extag">HTML</span><span class="extag">CSS</span><span class="extag">JavaScript</span><span class="extag">UI Development</span><span class="extag">Team Collaboration</span></div>
+        <div class="exco">Full-Time &middot; Vintorix Private Limited</div>
+        <p class="exdesc">Optimized email templates and segmentation strategies to improve open rates, CTR, and conversions across ISPs. Analyzed user engagement data to identify high-intent segments, driving a 20% lift in organic CTR. Monitored real-time campaign performance using PuTTY and SecureCRT. Collaborating with cross-functional teams to deliver clean, responsive, and user-friendly interfaces.</p>
+        <div class="extags"><span class="extag">HTML/CSS</span><span class="extag">PMTA</span><span class="extag">PuTTY</span><span class="extag">PuTTY</span><span class="extag">SecureCRT</span><span class="extag">Problem Solving</span><span class="extag">Team Collaboration</span></div>
       </div>
     </div>
     <div class="exitem" style="transition-delay:.18s">
       <div class="exdot"></div>
       <div class="exc">
-        <span class="exper">2023 &mdash; 2024</span>
-        <div class="exrole">Final Year Project &mdash; Web Tools Developer</div>
-        <div class="exco">Academic &middot; Amrita College of Engineering and Technology</div>
-        <p class="exdesc">Designed and developed multiple web-based utility tools as part of final year coursework. Built production-grade tools including an email marketing suite, an online code editor, and an alias extraction tool — all deployed live and accessible to real users.</p>
-        <div class="extags"><span class="extag">HTML</span><span class="extag">CSS</span><span class="extag">JavaScript</span><span class="extag">Problem Solving</span><span class="extag">Deployment</span></div>
+        <span class="exper">Aug 2024 &mdash; Oct 2024</span>
+        <div class="exrole">Junior Software Engineer &mdash; Trainee</div>
+        <div class="exco">Full-Time &middot; Vintorix Private Limited</div>
+        <p class="exdesc">Supported the development of email templates and segmentation strategies to improve deliverability and engagement across multiple ISPs. Used PuTTY and SecureCRT to help monitor campaign performance and flag issues in real time.</p>
+        <div class="extags"><span class="extag">PMTA</span><span class="extag">Outlook</span><span class="extag">SecureCRT</span><span class="extag">Problem Solving</span></div>
       </div>
     </div>
   </div>
@@ -895,7 +894,7 @@ window.addEventListener('DOMContentLoaded', function(){
       <div>
         <div class="eddeg">Bachelor of Engineering (B.E.) &mdash; Computer Science &amp; Engineering</div>
         <div class="edcol">Amrita College of Engineering and Technology</div>
-        <div class="edyr">June 2020 &ndash; August 2024</div>
+        <div class="edyr">June 2020 &ndash; May 2024</div>
       </div>
     </div>
     <div class="edc rv" style="transition-delay:.2s">
