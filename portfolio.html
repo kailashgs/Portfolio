@@ -227,11 +227,14 @@ section{padding:6rem 4rem;max-width:1200px;margin:0 auto;border-top:1px solid rg
 .skills-grid .card{opacity:0;transition:opacity .8s ease,transform .8s cubic-bezier(.34,1.56,.64,1);}
 .skills-grid .card.show{opacity:1;transform:translateY(0) scale(1);}
 .skills-grid .card:nth-child(1){transition-delay:.05s;}
-.skills-grid .card:nth-child(2){transition-delay:.25s;}
-.skills-grid .card:nth-child(3){transition-delay:.40s;}
-.skills-grid .card:nth-child(4){transition-delay:.45s;}
-.skills-grid .card:nth-child(5){transition-delay:.60s;}
-.skills-grid .card:nth-child(6){transition-delay:.75s;}
+.skills-grid .card:nth-child(2){transition-delay:.15s;}
+.skills-grid .card:nth-child(3){transition-delay:.25s;}
+.skills-grid .card:nth-child(4){transition-delay:.35s;}
+.skills-grid .card:nth-child(5){transition-delay:.45s;}
+.skills-grid .card:nth-child(6){transition-delay:.55s;}
+.skills-grid .card:nth-child(7){transition-delay:.65s;}
+.skills-grid .card:nth-child(8){transition-delay:.75s;}
+.skills-grid .card:nth-child(9){transition-delay:.85s;}
 
 @keyframes spinBorder{from{transform:rotateZ(0deg);}to{transform:rotateZ(360deg);}}
 @keyframes floating{0%{transform:translateY(0px);}50%{transform:translateY(12px);}100%{transform:translateY(0px);}}
@@ -267,6 +270,21 @@ section{padding:6rem 4rem;max-width:1200px;margin:0 auto;border-top:1px solid rg
 .card-6 .circle.c2{background:#d68910;width:170px;height:170px;top:70px;left:40px;}
 .card-6 .circle.c3{background:#ffd700;width:45px;height:45px;top:15px;left:170px;}
 .card-6 .badge{color:#f8c471;}
+.card-7 .back::before{background:linear-gradient(90deg,transparent,#16a085,#16a085,#16a085,transparent);}
+.card-7 .circle.c1{background:#16a085;width:110px;height:110px;top:-25px;left:-25px;}
+.card-7 .circle.c2{background:#0e6655;width:170px;height:170px;top:70px;left:40px;}
+.card-7 .circle.c3{background:#48c9b0;width:45px;height:45px;top:15px;left:170px;}
+.card-7 .badge{color:#76d7c4;}
+.card-8 .back::before{background:linear-gradient(90deg,transparent,#e91e63,#e91e63,#e91e63,transparent);}
+.card-8 .circle.c1{background:#e91e63;width:110px;height:110px;top:-25px;left:-25px;}
+.card-8 .circle.c2{background:#ad1457;width:170px;height:170px;top:70px;left:40px;}
+.card-8 .circle.c3{background:#f48fb1;width:45px;height:45px;top:15px;left:170px;}
+.card-8 .badge{color:#f48fb1;}
+.card-9 .back::before{background:linear-gradient(90deg,transparent,#5c6bc0,#5c6bc0,#5c6bc0,transparent);}
+.card-9 .circle.c1{background:#5c6bc0;width:110px;height:110px;top:-25px;left:-25px;}
+.card-9 .circle.c2{background:#3949ab;width:170px;height:170px;top:70px;left:40px;}
+.card-9 .circle.c3{background:#9fa8da;width:45px;height:45px;top:15px;left:170px;}
+.card-9 .badge{color:#9fa8da;}
 
 /* ===== PROJECTS ===== */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem;}
@@ -837,19 +855,19 @@ window.addEventListener('DOMContentLoaded', function(){
       <span class="ol">Kailash</span>
       <span class="ac"> G S</span>
     </h1>
-    <div class="htag"><span class="tag-dot"></span>Associate Software Engineer</div>
+    <div class="htag"><span class="tag-dot"></span>Performance Marketer</div>
     <p class="hsub">Digital marketer with a technical foundation, specializing in Meta Ads, Google Ads and campaign optimization. I use data, analytics, and automation to create marketing strategies that increase engagement, conversions, and ROI.</p>
     <div class="hcta">
-      <a href="#projects" class="btn bp">View My Work</a>
+      <a href="#achievements" class="btn bp">My Achievements</a>
       <a href="#contact" class="btn bo">Get In Touch</a>
     </div>
     <div class="hstats">
-      <div class="hstat"><span class="hico">💼</span><span class="hstat-label"><span class="hval">1 Year</span> Experience</span></div>
+      <div class="hstat"><span class="hico">📈</span><span class="hstat-label"><span class="hval">4.28x</span> ROAS Achieved</span></div>
+      <div class="hstat"><span class="hico">💰</span><span class="hstat-label"><span class="hval">69.5%</span> Revenue Growth</span></div>
+      <div class="hstat"><span class="hico">💸</span><span class="hstat-label"><span class="hval">₹75K+</span> Monthly Ad Spend</span></div>
+      <div class="hstat"><span class="hico">🎯</span><span class="hstat-label"><span class="hval">2×</span> Purchases in 1 Month</span></div>
       <div class="hstat"><span class="hico">🚀</span><span class="hstat-label"><span class="hval">3+</span> Live Projects</span></div>
-      <div class="hstat"><span class="hico">♾️</span><span class="hstat-label"><span class="hval">∞</span> Curiosity</span></div>
-      <div class="hstat"><span class="hico">🎯</span><span class="hstat-label"><span class="hval">100%</span> Commitment</span></div>
-      <div class="hstat"><span class="hico">🧩</span><span class="hstat-label">Problem Solver</span></div>
-      <div class="hstat"><span class="hico">🤝</span><span class="hstat-label">Team Player</span></div>
+      <div class="hstat"><span class="hico">🤝</span><span class="hstat-label">Meta &amp; Google Ads</span></div>
     </div>
   </div>
 </div>
@@ -867,9 +885,9 @@ window.addEventListener('DOMContentLoaded', function(){
       <div class="exdot"></div>
       <div class="exc">
         <span class="exper">Dec 2025 &mdash; Present</span>
-        <div class="exrole">Digital Marketing Executive</div>
+        <div class="exrole">Performance Marketer</div>
         <div class="exco">Part-Time &middot; AE Marketing's</div>
-        <p class="exdesc">Planning and executing performance-driven digital marketing campaigns across Meta and Google platforms. Managing ad creatives, audience targeting, and budget allocation to maximize ROAS, with measurable results in revenue growth and campaign efficiency (see Achievements below).</p>
+        <p class="exdesc">Planning and executing performance-driven digital marketing campaigns across Meta and Google platforms. Managing ad creatives, audience targeting, and budget allocation to maximize ROAS. Continuously monitoring campaign metrics — CTR, CPC, conversion rate — to identify optimisation opportunities and scale winning ad sets. Collaborating closely with creative and strategy teams to deliver campaigns that drive measurable business results.</p>
         <div class="extags"><span class="extag">Meta Ads</span><span class="extag">Google Ads</span><span class="extag">Audience Targeting</span><span class="extag">Campaign Optimisation</span><span class="extag">Performance Marketing</span><span class="extag">ROAS</span></div>
       </div>
     </div>
@@ -880,7 +898,7 @@ window.addEventListener('DOMContentLoaded', function(){
         <span class="exper">Nov 2024 &mdash; Oct 2025</span>
         <div class="exrole">Associate Software Engineer</div>
         <div class="exco">Full-Time &middot; Vintorix Private Limited</div>
-        <p class="exdesc">Optimized email templates and segmentation strategies to improve open rates, CTR, and conversions across ISPs. Analyzed user engagement data to identify high-intent segments, driving a 20% lift in organic CTR. Monitored real-time campaign performance using PuTTY and SecureCRT. Collaborating with cross-functional teams to deliver clean, responsive, and user-friendly interfaces.</p>
+        <p class="exdesc">Managed and optimized Meta Ads campaigns (Facebook/Instagram), overseeing budget allocation, A/B testing, and performance analysis, optimized email templates and segmentation strategies to improve open rates, CTR, and conversions across ISPs. Analyzed user engagement data to identify high-intent segments, driving a 20% lift in organic CTR. Monitored real-time campaign performance using PuTTY and SecureCRT. Collaborating with cross-functional teams to deliver clean, responsive, and user-friendly interfaces.</p>
         <div class="extags"><span class="extag">HTML/CSS</span><span class="extag">PMTA</span><span class="extag">PuTTY</span><span class="extag">SecureCRT</span><span class="extag">Problem Solving</span><span class="extag">Team Collaboration</span></div>
       </div>
     </div>
@@ -1022,109 +1040,163 @@ window.addEventListener('DOMContentLoaded', function(){
   </div>
   <div class="skills-grid">
 
-    <!-- 1. Digital Marketing Strategy -->
+    <!-- 1. Meta Ads -->
     <div class="card card-1">
       <div class="content">
         <div class="back"><div class="back-content">
-          <svg viewBox="0 0 64 64"><path d="M54 8C54 8 36 20 16 22L14 38C14 38 22 38 24 42C26 46 28 54 28 54H34L30 40C42 42 54 56 54 56V8Z"/><path d="M10 22H14L12 38H10C7.8 38 6 36.2 6 34V26C6 23.8 7.8 22 10 22Z"/><circle cx="50" cy="14" r="3"/><circle cx="50" cy="50" r="3"/></svg>
-          <strong>Digital Marketing Strategy</strong>
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" stroke="white" stroke-width="4"/><circle cx="32" cy="32" r="13" stroke="white" stroke-width="4"/><circle cx="32" cy="32" r="3" fill="white"/></svg>
+          <strong>Meta Ads</strong>
           <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
           <div class="front-content">
-            <span class="badge">Strategy</span>
-            <div class="description"><div class="desc-title">Digital Marketing Strategy</div><p class="desc-text">Crafting end-to-end marketing plans that align brand goals with audience needs, driving measurable growth across all digital channels.</p><div class="desc-tags"><span>Campaigns</span><span>Brand Growth</span><span>Planning</span></div></div>
+            <span class="badge">Paid Social</span>
+            <div class="description"><div class="desc-title">Meta Ads</div><p class="desc-text">Planning, launching and scaling paid social campaigns across Facebook and Instagram — audience targeting, creative testing and budget optimisation to maximise ROAS.</p><div class="desc-tags"><span>Campaign Setup</span><span>Audience Targeting</span><span>ROAS</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 2. Marketing Analytics -->
+    <!-- 2. Google Analytics 4 -->
     <div class="card card-2">
       <div class="content">
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64"><rect x="6" y="30" width="12" height="26" rx="2"/><rect x="22" y="18" width="12" height="38" rx="2"/><rect x="38" y="8" width="12" height="48" rx="2"/><line x1="4" y1="58" x2="60" y2="58" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
-          <strong>Marketing Analytics</strong>
+          <strong>Google Analytics 4</strong>
           <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
           <div class="front-content">
             <span class="badge">Analytics</span>
-            <div class="description"><div class="desc-title">Marketing Analytics</div><p class="desc-text">Turning raw data into actionable insights — tracking KPIs, measuring campaign performance, and continuously optimizing ROI.</p><div class="desc-tags"><span>KPIs</span><span>ROI</span><span>Performance</span></div></div>
+            <div class="description"><div class="desc-title">Google Analytics 4</div><p class="desc-text">Tracking user behaviour and campaign performance across the funnel — building custom reports and events to turn raw traffic data into decisions.</p><div class="desc-tags"><span>GA4</span><span>Funnel Tracking</span><span>Reporting</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 3. Competitive Analysis -->
+    <!-- 3. Google Search Console -->
     <div class="card card-3">
       <div class="content">
         <div class="back"><div class="back-content">
-          <svg viewBox="0 0 64 64" fill="none"><circle cx="26" cy="26" r="18" stroke="white" stroke-width="4"/><line x1="39" y1="39" x2="56" y2="56" stroke="white" stroke-width="5" stroke-linecap="round"/><line x1="18" y1="26" x2="34" y2="26" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="26" y1="18" x2="26" y2="34" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>
-          <strong>Competitive Analysis</strong>
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="26" cy="26" r="18" stroke="white" stroke-width="4"/><line x1="39" y1="39" x2="56" y2="56" stroke="white" stroke-width="5" stroke-linecap="round"/><path d="M18 26L23 31L34 20" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <strong>Google Search Console</strong>
+          <span class="hover-hint">Hover to learn more</span>
+        </div></div>
+        <div class="front">
+          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
+          <div class="front-content">
+            <span class="badge">SEO</span>
+            <div class="description"><div class="desc-title">Google Search Console</div><p class="desc-text">Monitoring search visibility, indexing and organic performance — diagnosing crawl issues and spotting keyword opportunities to grow organic traffic.</p><div class="desc-tags"><span>Indexing</span><span>Organic Growth</span><span>Diagnostics</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Google Ads -->
+    <div class="card card-4">
+      <div class="content">
+        <div class="back"><div class="back-content">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" stroke="white" stroke-width="4"/><circle cx="32" cy="32" r="14" stroke="white" stroke-width="4"/><circle cx="32" cy="32" r="4" fill="white"/></svg>
+          <strong>Google Ads</strong>
+          <span class="hover-hint">Hover to learn more</span>
+        </div></div>
+        <div class="front">
+          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
+          <div class="front-content">
+            <span class="badge">Paid Search</span>
+            <div class="description"><div class="desc-title">Google Ads</div><p class="desc-text">Building and scaling Search, Shopping and Performance Max campaigns — keyword strategy, bidding and ad copy testing to drive profitable conversions.</p><div class="desc-tags"><span>Search Ads</span><span>PMax</span><span>Bid Strategy</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. A/B Testing -->
+    <div class="card card-5">
+      <div class="content">
+        <div class="back"><div class="back-content">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M32 8V56" stroke="white" stroke-width="4" stroke-linecap="round"/><path d="M32 20H50C53.3 20 56 22.7 56 26V26" stroke="white" stroke-width="3.5" stroke-linecap="round"/><path d="M32 44H50C53.3 44 56 41.3 56 38V38" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="14" cy="20" r="6" stroke="white" stroke-width="3.5"/><circle cx="14" cy="44" r="6" stroke="white" stroke-width="3.5"/></svg>
+          <strong>A/B Testing</strong>
+          <span class="hover-hint">Hover to learn more</span>
+        </div></div>
+        <div class="front">
+          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
+          <div class="front-content">
+            <span class="badge">Experimentation</span>
+            <div class="description"><div class="desc-title">A/B Testing</div><p class="desc-text">Designing and running structured experiments on creatives, copy and landing pages — using statistically sound tests to find what actually moves the numbers.</p><div class="desc-tags"><span>Split Testing</span><span>Creative Testing</span><span>Optimisation</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Google Merchant Center -->
+    <div class="card card-6">
+      <div class="content">
+        <div class="back"><div class="back-content">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M12 22H52L48 54H16L12 22Z" stroke="white" stroke-width="4" stroke-linejoin="round"/><path d="M22 22V16C22 11.6 25.6 8 30 8H34C38.4 8 42 11.6 42 16V22" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>
+          <strong>Google Merchant Center</strong>
+          <span class="hover-hint">Hover to learn more</span>
+        </div></div>
+        <div class="front">
+          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
+          <div class="front-content">
+            <span class="badge">Shopping</span>
+            <div class="description"><div class="desc-title">Google Merchant Center</div><p class="desc-text">Managing product feeds and troubleshooting disapprovals — keeping catalogues compliant and optimised to power Shopping and Performance Max campaigns.</p><div class="desc-tags"><span>Product Feeds</span><span>Shopping Ads</span><span>Catalogue</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Google Keyword Planner -->
+    <div class="card card-7">
+      <div class="content">
+        <div class="back"><div class="back-content">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="24" cy="24" r="14" stroke="white" stroke-width="4"/><circle cx="24" cy="24" r="4" fill="white"/><path d="M34 34L56 56" stroke="white" stroke-width="4" stroke-linecap="round"/><path d="M46 46L52 40" stroke="white" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <strong>Google Keyword Planner</strong>
           <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
           <div class="front-content">
             <span class="badge">Research</span>
-            <div class="description"><div class="desc-title">Competitive Analysis</div><p class="desc-text">Benchmarking competitors to identify market gaps and build strategies that stay one step ahead in an evolving landscape.</p><div class="desc-tags"><span>Research</span><span>Benchmarking</span><span>Market Intel</span></div></div>
+            <div class="description"><div class="desc-title">Google Keyword Planner</div><p class="desc-text">Researching search volume, competition and keyword intent to build targeting strategies that connect ad spend with genuine buyer demand.</p><div class="desc-tags"><span>Keyword Research</span><span>Search Intent</span><span>Planning</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 4. Email Marketing -->
-    <div class="card card-4">
+    <!-- 8. ROI and Conversion Tracking -->
+    <div class="card card-8">
+      <div class="content">
+        <div class="back"><div class="back-content">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" stroke="white" stroke-width="4"/><path d="M22 33L28 39L42 25" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <strong>ROI &amp; Conversion Tracking</strong>
+          <span class="hover-hint">Hover to learn more</span>
+        </div></div>
+        <div class="front">
+          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
+          <div class="front-content">
+            <span class="badge">Measurement</span>
+            <div class="description"><div class="desc-title">ROI &amp; Conversion Tracking</div><p class="desc-text">Setting up conversion tracking and attribution across platforms — connecting spend to revenue so every rupee of budget is measurable and accountable.</p><div class="desc-tags"><span>Attribution</span><span>Conversion Tracking</span><span>ROI</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Email Optimization -->
+    <div class="card card-9">
       <div class="content">
         <div class="back"><div class="back-content">
           <svg viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36" rx="4" fill="none" stroke="white" stroke-width="4"/><polyline points="6,14 32,36 58,14" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/></svg>
-          <strong>Email Marketing</strong>
+          <strong>Email Optimization</strong>
           <span class="hover-hint">Hover to learn more</span>
         </div></div>
         <div class="front">
           <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
           <div class="front-content">
             <span class="badge">Email</span>
-            <div class="description"><div class="desc-title">Email Marketing</div><p class="desc-text">Designing targeted campaigns that engage subscribers, nurture leads, and drive conversions with strong deliverability and personalization.</p><div class="desc-tags"><span>Campaigns</span><span>Automation</span><span>Deliverability</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. Data Visualization -->
-    <div class="card card-5">
-      <div class="content">
-        <div class="back"><div class="back-content">
-          <svg viewBox="0 0 64 64"><path d="M32 6 A26 26 0 0 1 58 32 L32 32 Z" fill="white" opacity="0.5"/><path d="M32 32 L58 32 A26 26 0 0 1 10 52 Z" fill="white" opacity="0.75"/><path d="M32 32 L10 52 A26 26 0 0 1 32 6 Z" fill="white"/><circle cx="32" cy="32" r="4" fill="#151515"/></svg>
-          <strong>Data Visualization</strong>
-          <span class="hover-hint">Hover to learn more</span>
-        </div></div>
-        <div class="front">
-          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
-          <div class="front-content">
-            <span class="badge">Data</span>
-            <div class="description"><div class="desc-title">Data Visualization</div><p class="desc-text">Transforming complex datasets into compelling visual stories — building dashboards and charts that make data easy to act upon.</p><div class="desc-tags"><span>Dashboards</span><span>Charts</span><span>Storytelling</span></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. AI Prompt Engineering -->
-    <div class="card card-6">
-      <div class="content">
-        <div class="back"><div class="back-content">
-          <svg viewBox="0 0 64 64" fill="none"><path d="M32 10C24 10 16 16 16 26C16 32 20 36 20 36V50H44V36C44 36 48 32 48 26C48 16 40 10 32 10Z" stroke="white" stroke-width="3.5" fill="none" stroke-linejoin="round"/><line x1="24" y1="36" x2="40" y2="36" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="24" y1="43" x2="40" y2="43" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="50" x2="36" y2="50" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="32" y1="10" x2="32" y2="16" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="16" y1="24" x2="22" y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="48" y1="24" x2="42" y2="26" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <strong>AI Prompt Engineering</strong>
-          <span class="hover-hint">Hover to learn more</span>
-        </div></div>
-        <div class="front">
-          <div class="img"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div></div>
-          <div class="front-content">
-            <span class="badge">AI</span>
-            <div class="description"><div class="desc-title">AI Prompt Engineering</div><p class="desc-text">Designing precise prompts to unlock the best from AI tools — accelerating content creation, research, and problem-solving with LLMs.</p><div class="desc-tags"><span>LLMs</span><span>Automation</span><span>AI Tools</span></div></div>
+            <div class="description"><div class="desc-title">Email Optimization</div><p class="desc-text">Improving deliverability, open rates and CTR through segmentation, template refinement and real-time deliverability monitoring across ISPs.</p><div class="desc-tags"><span>Deliverability</span><span>Segmentation</span><span>CTR</span></div></div>
           </div>
         </div>
       </div>
